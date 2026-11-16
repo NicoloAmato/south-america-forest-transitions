@@ -1,0 +1,28 @@
+# Downloaded inputs (MODIS tiles, GADM borders) and intermediate rasters.
+# GADM data may not be redistributed, MODIS tiles are several GB: both are fetched by the pipeline.
+data/
+
+# Credentials
+.env
+.netrc
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# GIS side files
+*.aux.xml
+*.qgs~
+*.qgz~
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

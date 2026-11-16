@@ -1,0 +1,45 @@
+[project]
+name = "forest-change-south-america"
+version = "0.1.0"
+description = "Forest change and degradation in South America (2001-2021) from MODIS land cover and NDVI: a reproducible geospatial workflow with Python and QGIS outputs."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Nicolò Amato" }]
+keywords = ["remote sensing", "MODIS", "deforestation", "NDVI", "land cover", "GIS", "QGIS"]
+dependencies = [
+    "earthaccess>=0.12",
+    "geopandas>=1.0",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "pyhdf>=0.11.4",
+    "pyproj>=3.6",
+    "rasterio>=1.4",
+    "requests>=2.31",
+]
+
+[project.scripts]
+forest-change = "forestchange.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/forestchange"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
